@@ -1,18 +1,18 @@
 import React from "react";
-import "../styles/app.css";
+import { Routes, Route } from "react-router-dom";
+import Properties from "./Properties";
 import Navbar from "./navbar";
+import AddProperty from "./AddProperty";
+import "../styles/app.css";
 
 const App = () => (
   <div className="App">
     <Navbar />
-    <a
-      className="App-link"
-      href="https://reactjs.org"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <h2>Surreal Estate</h2>
-    </a>
+    <Routes>
+      <Route path="/" element={<Properties />} />
+      <Route path="add-property" element={<AddProperty />} />
+    </Routes>
+    <AddProperty />
   </div>
 );
 

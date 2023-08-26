@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../styles/navbar.css";
 
 const NavBar = () => (
@@ -13,10 +14,14 @@ const NavBar = () => (
       <ul>
         <div className="navbar-links-item" />
         <li>
-          <a href="https://google.com">View Properties</a>
+          <Link className="item" to="/">
+            View Properties
+          </Link>
         </li>
         <li>
-          <a href="https://google.com">Add a Property</a>
+          <Link className="item" to="add-property">
+            Add a Property
+          </Link>
         </li>
       </ul>
     </div>
