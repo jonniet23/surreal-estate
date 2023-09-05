@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from "axios";
+import Alert from "./Alert";
 import "../styles/add-property.css";
 
 const AddProperty = () => {
@@ -12,19 +14,42 @@ const AddProperty = () => {
       city: "Manchester",
       email: "I.love.houses@hotmail.com",
     },
+    alert: {
+      message: "",
+      isSuccess: false,
+    },
   };
 
   const [fields, setFields] = useState(initialState.fields);
-  const handleAddProperty = (event) => {
-    event.preventDefault();
-    console.log(fields);
-  };
+  const [alert, setAlert] = useState(initialState.alert);
+
   const handleFieldChange = (event) => {
     setFields({ ...fields, [event.target.name]: event.target.value });
   };
 
+  const handleAddProperty = (event) => {
+    event.preventDefault();
+    setAlert({ message: "", isSuccess: false });
+    axios
+      .post("http://localhost:4000/api/v1/PropertyListing", fields)
+
+      .then(() => {
+        setAlert({
+          message: "New Property Added",
+          isSuccess: true,
+        });
+      })
+      .catch(() => {
+        setAlert({
+          message: "Server error. Please try again later.",
+          isSuccess: false,
+        });
+      });
+  };
+
   return (
     <div className="add-property">
+      <Alert message={alert.message} success={alert.isSuccess} />
       <form onSubmit={handleAddProperty}>
         <div className="add-property-title">
           <label htmlFor="title">
@@ -123,7 +148,6 @@ const AddProperty = () => {
             />
           </label>
         </div>
-        {/* <div>Add Property Page</div> */}
         <button type="submit" className="add-property-button">
           Add
         </button>

@@ -1,0 +1,47 @@
+.property-card {
+  min-height: 14.5rem;
+  background-color: rgb(238, 245, 214);
+  padding-bottom: 0.7rem;
+  margin: 0.25rem 0 0 0.25rem;
+}
+
+.property-card__logo-container {
+  display: flex;
+  justify-content: center;
+}
+
+.property-card__logo {
+  width: 6rem;
+  padding: 0.2rem;
+}
+
+.property-card__text-field {
+  height: 4rem;
+  margin: 0 0 0.5rem 1rem;
+}
+
+.property-card__text {
+  display: flex;
+  justify-content: center;
+  margin: 0.3rem 0;
+}
+
+.property-card__icon-field {
+  display: flex;
+  justify-content: center;
+  padding: 0.3rem 1rem;
+}
+
+.property-card__icon {
+  width: 1rem;
+}
+
+.property-card__email {
+  background-color: aquamarine;
+  border-bottom: 2px solid lightgray;
+  border-radius: 0.3rem;
+  padding: 0.3rem;
+  margin: 0 auto;
+  text-align: center;
+  width: 70%;
+}

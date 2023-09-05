@@ -29,3 +29,6 @@
   align-self: center;
   display: inline-block;
 }
+.item {
+  color: blue;
+}
